@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<script>
+function func1(){
+  var randcol= "";
+  var allchar="0123456789ABCDEF";
+ // document.body.style.background="red";
+  for(var i=0; i<6; i++){
+   randcol += allchar[Math.floor(Math.random()*16)];
+}
+document.body.style.backgroundColor= "#"+randcol;
+}
+
+
+</script>
+<body>
+<h3>Click the button to change background color</h3>
+  <input type="button" value="submit" onclick="func1()" onmouseleave="func2()" > 
+</body>
+</html>
