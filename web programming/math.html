@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <h1>Javascript</h1>
+  enter  number:=<input type="text" id="a"><br><br>
+  enter  number for min AND max:=<input type="text" id="b"><br><br> 
+  result:<input type="text" id="c"><br><br>
+  <input type="button" value="round" onClick="myfunc1()" >
+  <input type="button" value="ceil" onClick="myfunc2()" >
+  <input type="button" value="floor" onClick="myfunc3()" >
+  <input type="button" value="trunc" onClick="myfunc4()" >
+  <input type="button" value="sqrt" onClick="myfunc5()" >
+   <input type="button" value="abs" onClick="myfunc6()" >
+  <input type="button" value="min" onClick="myfunc7()" >
+  <input type="button" value="max" onClick="myfunc8()" >
+
+
+
+
+<script>
+function myfunc1(){
+ var z; 
+ z=parseInt(document.getElementById('a').value);
+ document.getElementById("c").value=Math.round(z);
+}
+function myfunc2(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=Math.ceil(z);
+ 
+}
+function myfunc3(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=Math.floor(z);
+}
+function myfunc4(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=Math.trunc(z);
+}
+function myfunc5(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=Math.sqrt(z);
+}
+function myfunc6(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=Math.abs(z);
+}
+function myfunc7(){
+ var x,y; 
+ x=document.getElementById('a').value;
+ y=document.getElementById('b').value;
+ document.getElementById("c").value=Math.min(x,y);
+}
+function myfunc8(){
+ var x,y; 
+ x=document.getElementById('a').value;
+ y=document.getElementById('b').value;
+ document.getElementById("c").value=Math.max(x,y);
+}
+
+</script>
+</body>
+</html>

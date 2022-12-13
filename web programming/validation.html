@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>validation form</title>
+</head>
+
+<style>
+h1{
+color:green;
+}
+.red{
+  color:red;
+  
+}
+.submit{
+  color:green;
+  margin-left:100px;
+}
+.reset,.sup{
+  color:red;
+}
+#ch{
+  padding-top:0px;
+  margin-top:0px;
+  border-top:0px;
+  padding-left:30px;
+}
+
+</style>
+
+<script>
+
+function func()
+{
+  var name=document.getElementById("name").value;
+  var addno=document.getElementById("addno").value;
+  var email=document.getElementById("email").value;
+   var mobile=document.getElementById("mobile").value;
+  var pass=document.getElementById("pass").value;
+  var cpass=document.getElementById("cpass").value;
+  
+  var number = /[0-9!@#$%^&*]/ ;
+  var specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  var q=/@./;
+  var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$'/ ;
+  var ele = document.getElementsByName('gender');
+  var ch = document.getElementsByName('check');
+  var flag=1;
+  
+ //if(name=="" || specialChars.test((name)) || number.test(name) || name.length<=3
+  
+  //name
+  if (name=="")
+ {
+   document.getElementById("name1").value="please enter text";
+  // document.getElementById("name").focus();
+   flag=0;
+   //return false;
+ }
+  else if(specialChars.test((name)))
+    {
+      document.getElementById("name1").value="no special character allowed"; 
+    // document.getElementById("name").focus();
+   flag=0;
+    }
+ else if(number.test(name))
+   {
+     document.getElementById("name1").value="please enter valid text"; 
+     //document.getElementById("name").focus();
+   flag=0;
+   }
+ else if(name.length<=3)
+   {
+     document.getElementById("name1").value="text length>3"; 
+     //document.getElementById("name").focus();
+     flag=0;
+   }
+  else
+    {
+      document.getElementById("name1").value="";
+       flag=1;
+    }
+
+
+
+//Admission number
+ if (addno=="")
+ {
+   document.getElementById("adno").value="please enter admission no.";
+  // document.getElementById("addno").focus();
+   flag=0;
+ }
+ else if(specialChars.test(addno))
+ {
+       document.getElementById("adno").value="no special character allowed"; 
+      // document.getElementById("addno").focus();
+   flag=0;
+ }
+ else if(addno.length!=6)
+   {
+   document.getElementById("adno").value="Length must be 6"; 
+   //document.getElementById("addno").focus();
+   flag=0;
+   }
+  else
+    {
+      document.getElementById("adno").value=""; 
+       flag=1;
+    }
+
+
+
+//Email
+ if (email=="")
+ {
+   document.getElementById("e").value="please enter email";
+   //document.getElementById("email").focus();
+   flag=0;  
+ }
+  else if(specialChars.test(email)&& !q.test(email) )
+    {
+    document.getElementById("e").value="Not valid email"; 
+   //document.getElementById("email").focus();
+   flag=0;  
+    }
+  else
+    {
+      document.getElementById("e").value=""; 
+       flag=1;
+    }
+
+
+//Mobile number
+  if (mobile=="")
+ {
+   document.getElementById("f").value="please enter mobile no";
+   flag=0;  
+ }
+  else if (mobile.length!=10)
+ {
+   document.getElementById("f").value="Length must be 10";
+   flag=0;  
+ }
+  else
+    {
+      document.getElementById("f").value=""; 
+       flag=1;
+    }
+
+
+//Password
+ if (pass=="")
+ {
+   document.getElementById("g").value="please enter password";
+   flag=0;  
+ }
+  else if (!specialChars.test(pass) && !number.test(pass))
+ {
+   document.getElementById("g").value="contain special and number";
+   flag=0;  
+ }
+  else
+    {
+      document.getElementById("g").value=""; 
+       flag=1;
+    }
+
+
+//Confirm password
+  if (cpass=="" || cpass != pass )
+   {
+   document.getElementById("h").value="password missmatch";
+   flag=0;  
+   }
+  else
+    {
+      document.getElementById("h").value=""; 
+       flag=1;
+    }
+   
+  
+  
+  //Gender
+  
+  for(i = 0; i < ele.length; i++)
+  {
+     if(!ele[i].checked && !ele[i+1].checked)
+     {
+       document.getElementById("gender").value= "select gender";
+       flag=0;
+       break;
+     }
+     else
+     {
+       document.getElementById("gender").value=""; 
+       flag=1;
+       break;
+     }
+  }
+  
+  /*if(ch.checked!=true)
+    {
+      document.getElementById("ch").innerHTML=" must be checked";
+      flag=0;
+    }
+   else 
+     {
+       document.getElementById("ch").innerHTML=""; 
+       flag=1;
+     }*/
+  
+  
+  if(flag==1)
+    {
+     document.write("Thanks for Submitting...");
+      
+    }
+   
+}
+
+</script>
+
+
+
+
+<body>
+<center>
+  <h1>Registration form</h1>
+  <form onsubmit="return false;">
+  <table>
+    <tr>
+      <td>Name:<sup class="sup">*</sup></td>
+      <td><input type="text" placeholder="eg:-John" style="text-transform:uppercase" id="name"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="text"  class="red" id="name1" disabled></td>
+    </tr>
+    <tr>
+      <td>Admission Number:<sup class="sup">*</sup></td>
+      <td><input type="text" placeholder="eg:-22c023" id="addno" style="text-transform:uppercase"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="text" class="red" id="adno" disabled></td>
+    </tr>
+    <tr>
+      <td>E-mail:<sup class="sup">*</sup></td>
+      <td><input type="text" id="email" placeholder="eg:-xyz@gmail.com" style="text-transform:lowercase"></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td><input type="text" class="red"  id="e" disabled/></td>
+    </tr>
+    <tr>
+      <td>Mobile Number:<sup class="sup">*</sup></td>
+      <td><input type="number" id="mobile" placeholder="eg:-0123456789" ></td>
+    </tr> 
+    <tr>
+      <td></td>
+      <td ><input type="text" class="red" id="f" disabled></td>
+    </tr>
+    <tr>
+      <td>Gender:<sup class="sup">*</sup></td>
+      <td><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label>&nbsp;
+          <input type="radio" id="female" name="gender" value="female"><label for="female">Female</label></td>
+    </tr>
+        <tr>
+      <td></td>
+      <td ><input type="text" class="red" id="gender" disabled></td>
+    </tr>
+    <tr>
+      <td>Password:<sup class="sup">*</sup></td>
+      <td><input type="password" id="pass"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="text" class="red" id="g" disabled></td>
+    </tr>
+    <tr>
+      <td>Confirm Password:<sup class="sup">*</sup></td>
+      <td><input type="password" id="cpass"></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td><input type="text" class="red" id="h" disabled></td>
+    </tr>
+    
+    <tr>
+      <td colspan="2"><input type="checkbox" id="check" name="check" ><sup class="sup">*</sup>
+      <b>I agree to the terms and conditions as set out by the user agreement</b></td>
+    </tr>
+    <tr>
+      <td colspan="2"><p id="ch" class="red" >  </p><!--<input type="text" class="red" id="ch" disabled>--></td>
+    </tr>
+    <tr>
+      <td>
+      <input type="submit" value="submit" class="submit" onclick="func()"  >
+      </td><td><input type="reset" value="reset" class="reset"><td>
+    </tr>
+    </table>
+     <p id="p" ></p>
+      </form></center>
+</body>
+</html>
+

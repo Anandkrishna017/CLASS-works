@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <h1>Javascript</h1>
+  enter  string1:=<input type="text" id="a"><br><br>
+  enter  string2=<input type="text" id="b"><br><br>
+  result:<input type="text" id="c"><br><br>
+  <input type="button" value="upper" onClick="myfunc1()" >
+  <input type="button" value="lower" onClick="myfunc2()" >
+  <input type="button" value="len" onClick="myfunc3()" >
+  <input type="button" value="concat" onClick="myfunc4()" >
+  <input type="button" value="substring" onClick="myfunc5()" >
+  <script>
+    function myfunc1(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=z.toUpperCase();
+ 
+}
+function myfunc2(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=z.toLowerCase();
+}
+function myfunc3(){
+ var z; 
+ z=document.getElementById('a').value;
+ document.getElementById("c").value=z.length;
+}
+function myfunc4(){
+ var x,y,z; 
+ x=document.getElementById('a').value;
+ y=document.getElementById('b').value;
+ z=x.concat(" ",y);
+ document.getElementById("c").value=z;
+}
+function myfunc5(){
+ var z,x;
+ z=document.getElementById('a').value;
+  x=z.substring(2, 5);
+ document.getElementById("c").value=x;
+}
+  </script>
+</body>
+</html>
