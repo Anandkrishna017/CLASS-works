@@ -46,41 +46,35 @@ function func()
   var q=/@./;
   var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$'/ ;
   var ele = document.getElementsByName('gender');
-  var ch = document.getElementsByName('check');
-  var flag=1;
+  var flag=0;
   
- //if(name=="" || specialChars.test((name)) || number.test(name) || name.length<=3
+ 
   
   //name
   if (name=="")
  {
    document.getElementById("name1").value="please enter text";
-  // document.getElementById("name").focus();
    flag=0;
-   //return false;
  }
   else if(specialChars.test((name)))
     {
       document.getElementById("name1").value="no special character allowed"; 
-    // document.getElementById("name").focus();
    flag=0;
     }
  else if(number.test(name))
    {
-     document.getElementById("name1").value="please enter valid text"; 
-     //document.getElementById("name").focus();
+     document.getElementById("name1").value="please enter valid text";
    flag=0;
    }
  else if(name.length<=3)
    {
      document.getElementById("name1").value="text length>3"; 
-     //document.getElementById("name").focus();
      flag=0;
    }
   else
     {
       document.getElementById("name1").value="";
-       flag=1;
+       flag++;
     }
 
 
@@ -89,25 +83,22 @@ function func()
  if (addno=="")
  {
    document.getElementById("adno").value="please enter admission no.";
-  // document.getElementById("addno").focus();
    flag=0;
  }
  else if(specialChars.test(addno))
  {
        document.getElementById("adno").value="no special character allowed"; 
-      // document.getElementById("addno").focus();
    flag=0;
  }
  else if(addno.length!=6)
    {
    document.getElementById("adno").value="Length must be 6"; 
-   //document.getElementById("addno").focus();
    flag=0;
    }
   else
     {
       document.getElementById("adno").value=""; 
-       flag=1;
+       flag++;
     }
 
 
@@ -116,19 +107,17 @@ function func()
  if (email=="")
  {
    document.getElementById("e").value="please enter email";
-   //document.getElementById("email").focus();
    flag=0;  
  }
   else if(specialChars.test(email)&& !q.test(email) )
     {
     document.getElementById("e").value="Not valid email"; 
-   //document.getElementById("email").focus();
    flag=0;  
     }
   else
     {
       document.getElementById("e").value=""; 
-       flag=1;
+       flag++;
     }
 
 
@@ -146,7 +135,7 @@ function func()
   else
     {
       document.getElementById("f").value=""; 
-       flag=1;
+       flag++;
     }
 
 
@@ -164,7 +153,7 @@ function func()
   else
     {
       document.getElementById("g").value=""; 
-       flag=1;
+       flag++;
     }
 
 
@@ -177,7 +166,7 @@ function func()
   else
     {
       document.getElementById("h").value=""; 
-       flag=1;
+       flag++;
     }
    
   
@@ -195,12 +184,15 @@ function func()
      else
      {
        document.getElementById("gender").value=""; 
-       flag=1;
+       flag++;
        break;
      }
   }
   
-  /*if(ch.checked!=true)
+
+//checkbox
+
+  if(check.checked!=1)
     {
       document.getElementById("ch").innerHTML=" must be checked";
       flag=0;
@@ -208,14 +200,13 @@ function func()
    else 
      {
        document.getElementById("ch").innerHTML=""; 
-       flag=1;
-     }*/
+       flag++;
+     }
   
   
-  if(flag==1)
+  if(flag==8)
     {
-     document.write("Thanks for Submitting...");
-      
+     document.write("Thanks for Submitting...");      
     }
    
 }
@@ -290,15 +281,15 @@ function func()
     </tr>
     
     <tr>
-      <td colspan="2"><input type="checkbox" id="check" name="check" ><sup class="sup">*</sup>
+      <td colspan="2"><input type="checkbox" id="check"  ><sup class="sup">*</sup>
       <b>I agree to the terms and conditions as set out by the user agreement</b></td>
     </tr>
     <tr>
-      <td colspan="2"><p id="ch" class="red" >  </p><!--<input type="text" class="red" id="ch" disabled>--></td>
+      <td colspan="2"><p id="ch" class="red" >  </p></td>
     </tr>
     <tr>
       <td>
-      <input type="submit" value="submit" class="submit" onclick="func()"  >
+      <input type="submit" value="submit" class="submit"  onclick="func()"  >
       </td><td><input type="reset" value="reset" class="reset"><td>
     </tr>
     </table>
@@ -306,4 +297,3 @@ function func()
       </form></center>
 </body>
 </html>
-
